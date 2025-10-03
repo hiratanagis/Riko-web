@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Riko Bot - Asisten Canggih untuk Grup WhatsApp Anda</title>
+    <link rel="icon" href="https://i.pinimg.com/736x/1a/3e/37/1a3e37815b81023c7a03c3a4f6a53d3c.jpg" type="image/jpeg">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0f172a; /* slate-900 */
+        }
+        .tab-active {
+            background-color: #4f46e5; /* indigo-600 */
+            color: #e2e8f0; /* slate-200 */
+        }
+        .tab-inactive {
+            background-color: #1e293b; /* slate-800 */
+            color: #94a3b8; /* slate-400 */
+        }
+        .command-card {
+            background: rgba(30, 41, 59, 0.5); /* slate-800 with transparency */
+            border: 1px solid #334155; /* slate-700 */
+            transition: all 0.3s ease;
+        }
+        .command-card:hover {
+            transform: translateY(-4px);
+            border-color: #4f46e5; /* indigo-600 */
+        }
+        .hero-bg {
+            background-image: radial-gradient(#1e293b 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+        @keyframes pulse-glow {
+            0%, 100% {
+                box-shadow: 0 0 15px rgba(79, 70, 229, 0.4);
+            }
+            50% {
+                box-shadow: 0 0 30px rgba(79, 70, 229, 0.8);
+            }
+        }
+        .cta-button {
+            animation: pulse-glow 2.5s infinite ease-in-out;
+        }
+    </style>
+</head>
+<body class="text-slate-200">
+
+    <!-- Header -->
+    <header class="sticky top-0 z-50 bg-slate-900/70 backdrop-blur-lg border-b border-slate-800">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="flex items-center space-x-3">
+                <img src="https://i.pinimg.com/736x/1a/3e/37/1a3e37815b81023c7a03c3a4f6a53d3c.jpg" alt="Riko Bot Icon" class="h-8 w-8 rounded-full">
+                <a href="#" class="text-2xl font-bold text-white">Riko Bot</a>
+            </div>
+            <div class="hidden md:flex items-center space-x-6">
+                <a href="#fitur" class="hover:text-indigo-400 transition-colors">Fitur</a>
+                <a href="#commands" class="hover:text-indigo-400 transition-colors">Commands</a>
+                <a href="#" class="bg-indigo-600 hover:bg-indigo-700 text-white font-semibold px-4 py-2 rounded-lg transition-colors">Tambah ke Grup</a>
+            </div>
+            <button id="mobile-menu-button" class="md:hidden">
+                <i data-lucide="menu"></i>
+            </button>
+        </nav>
+    </header>
+    
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden md:hidden bg-slate-800 p-4">
+        <a href="#fitur" class="block py-2 text-center hover:text-indigo-400">Fitur</a>
+        <a href="#commands" class="block py-2 text-center hover:text-indigo-400">Commands</a>
+        <a href="#" class="block mt-2 text-center bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-2 rounded-lg">Tambah ke Grup</a>
+    </div>
+
+    <!-- Hero Section -->
+    <main class="hero-bg">
+        <section class="min-h-screen flex items-center justify-center text-center px-4">
+            <div class="max-w-3xl">
+                <div class="inline-block bg-indigo-500/10 text-indigo-400 px-4 py-1 rounded-full text-sm font-semibold mb-4">
+                    Asisten WhatsApp Terbaik
+                </div>
+                <h1 class="text-4xl md:text-6xl font-extrabold text-white leading-tight">
+                    Buat Grup WhatsApp Anda Lebih <span class="text-indigo-400">Seru dan Teratur</span>
+                </h1>
+                <p class="mt-6 text-lg md:text-xl text-slate-400 max-w-2xl mx-auto">
+                    Riko Bot hadir dengan puluhan fitur canggih, mulai dari moderasi grup, mini-game, ekonomi, hingga integrasi AI untuk menjawab semua pertanyaanmu.
+                </p>
+                <div class="mt-10">
+                    <a href="#" class="cta-button bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-lg px-8 py-4 rounded-xl transition-all duration-300 transform hover:scale-105">
+                         Undang Riko ke Grup Anda
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Fitur Highlight Section -->
+        <section id="fitur" class="py-20 bg-slate-900">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-white">Fitur Unggulan</h2>
+                    <p class="text-slate-400 mt-3 max-w-xl mx-auto">Jelajahi berbagai kemampuan Riko Bot yang akan mengubah pengalaman Anda di WhatsApp.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Feature Card 1 -->
+                    <div class="command-card p-6 rounded-xl">
+                        <div class="bg-indigo-500/10 inline-flex items-center justify-center p-3 rounded-lg mb-4">
+                            <i data-lucide="shield-ban" class="text-indigo-400 h-8 w-8"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">Moderasi Kuat</h3>
+                        <p class="text-slate-400">Jaga grup tetap kondusif dengan fitur ban, kick, anti-spam, anti-link, dan shadowban user yang mengganggu.</p>
+                    </div>
+                    <!-- Feature Card 2 -->
+                    <div class="command-card p-6 rounded-xl">
+                        <div class="bg-indigo-500/10 inline-flex items-center justify-center p-3 rounded-lg mb-4">
+                           <i data-lucide="brain-circuit" class="text-indigo-400 h-8 w-8"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">AI Cerdas "Riko"</h3>
+                        <p class="text-slate-400">Tanya apa saja, ngobrol santai, atau minta bantuan AI Riko untuk mencari informasi langsung di dalam grup.</p>
+                    </div>
+                    <!-- Feature Card 3 -->
+                    <div class="command-card p-6 rounded-xl">
+                        <div class="bg-indigo-500/10 inline-flex items-center justify-center p-3 rounded-lg mb-4">
+                            <i data-lucide="swords" class="text-indigo-400 h-8 w-8"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">Sistem Level & Peringkat</h3>
+                        <p class="text-slate-400">Tingkatkan level dengan aktif di grup dan bersaing dengan user lain untuk menjadi yang teratas di leaderboard global.</p>
+                    </div>
+                    <!-- Feature Card 4 -->
+                    <div class="command-card p-6 rounded-xl">
+                        <div class="bg-indigo-500/10 inline-flex items-center justify-center p-3 rounded-lg mb-4">
+                            <i data-lucide="gamepad-2" class="text-indigo-400 h-8 w-8"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">Mini-Game Seru</h3>
+                        <p class="text-slate-400">Mainkan berbagai game seperti Coinflip, Slots, Blackjack, Dice, dan Quiz untuk menambah keseruan di grup.</p>
+                    </div>
+                     <!-- Feature Card 5 -->
+                    <div class="command-card p-6 rounded-xl">
+                        <div class="bg-indigo-500/10 inline-flex items-center justify-center p-3 rounded-lg mb-4">
+                            <i data-lucide="package-plus" class="text-indigo-400 h-8 w-8"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">Fitur Utilitas</h3>
+                        <p class="text-slate-400">Download video, cari lirik, buat stiker, dan kembalikan pesan yang dihapus dengan mudah pakai Riko Bot.</p>
+                    </div>
+                     <!-- Feature Card 6 -->
+                     <div class="command-card p-6 rounded-xl">
+                        <div class="bg-indigo-500/10 inline-flex items-center justify-center p-3 rounded-lg mb-4">
+                            <i data-lucide="coins" class="text-indigo-400 h-8 w-8"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">Sistem Ekonomi</h3>
+                        <p class="text-slate-400">Kumpulkan gold dari berburu, menambang, atau mencuri. Gunakan untuk membeli item di shop dan jadilah yang terkaya.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Commands Section -->
+        <section id="commands" class="py-20">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-white">Daftar Perintah Lengkap</h2>
+                    <p class="text-slate-400 mt-3 max-w-xl mx-auto">Gunakan `!help [command]` untuk info lebih detail. Klik kategori di bawah untuk melihat daftarnya.</p>
+                </div>
+
+                <!-- Tabs -->
+                <div class="flex flex-wrap justify-center gap-2 md:gap-4 mb-8">
+                    <button class="tab-button tab-active" data-tab="economy">Economy</button>
+                    <button class="tab-button tab-inactive" data-tab="fitur">Fitur</button>
+                    <button class="tab-button tab-inactive" data-tab="fun">Fun</button>
+                    <button class="tab-button tab-inactive" data-tab="informasi">Informasi</button>
+                    <button class="tab-button tab-inactive" data-tab="leveling">Leveling</button>
+                    <button class="tab-button tab-inactive" data-tab="moderasi">Moderasi</button>
+                    <button class="tab-button tab-inactive" data-tab="setup">Setup</button>
+                    <button class="tab-button tab-inactive" data-tab="sosial">Sosial</button>
+                </div>
+
+                <!-- Tab Content -->
+                <div class="tab-content">
+                    <!-- Economy Content -->
+                    <div id="economy-content" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                        <!-- Commands are dynamically inserted here by JS -->
+                    </div>
+                    <!-- Fitur Content -->
+                    <div id="fitur-content" class="hidden grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4"></div>
+                    <!-- Fun Content -->
+                    <div id="fun-content" class="hidden grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4"></div>
+                    <!-- Informasi Content -->
+                    <div id="informasi-content" class="hidden grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4"></div>
+                    <!-- Leveling Content -->
+                    <div id="leveling-content" class="hidden grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4"></div>
+                    <!-- Moderasi Content -->
+                    <div id="moderasi-content" class="hidden grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4"></div>
+                    <!-- Setup Content -->
+                    <div id="setup-content" class="hidden grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4"></div>
+                    <!-- Sosial Content -->
+                    <div id="sosial-content" class="hidden grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4"></div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 border-t border-slate-800">
+        <div class="container mx-auto px-6 py-8 text-center text-slate-400">
+            <p>&copy; 2025 Riko Bot. Dibuat dengan <span class="text-red-500">&hearts;</span> untuk komunitas WhatsApp.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Data Commands
+        const commands = {
+            economy: [
+                { cmd: "!balance", desc: "Cek jumlah gold" },
+                { cmd: "!buy", desc: "Beli item dari shop" },
+                { cmd: "!daily", desc: "Claim XP harian dengan streak reward" },
+                { cmd: "!deposit", desc: "Simpan gold ke bank" },
+                { cmd: "!dimension", desc: "Pindah atau unlock dimensi" },
+                { cmd: "!fishy", desc: "Menangkap ikan" },
+                { cmd: "!hunt", desc: "Berburu menggunakan sword" },
+                { cmd: "!inventory", desc: "Lihat item aktif dan hasil mining kamu" },
+                { cmd: "!mine", desc: "Menambang menggunakan pickaxe" },
+                { cmd: "!rob", desc: "Mencuri gold dari user lain" },
+                { cmd: "!sell", desc: "Jual item hasil mining dan hunting" },
+                { cmd: "!shop", desc: "Menampilkan item dari shop" },
+                { cmd: "!transfer", desc: "Transfer gold ke user lain" },
+                { cmd: "!withdraw", desc: "Tarik gold dari bank ke dompet" }
+            ],
+            fitur: [
+                { cmd: "!anime", desc: "Cari info anime" },
+                { cmd: "!downloadvideo", desc: "Download video dari berbagai platform" },
+                { cmd: "!lirik", desc: "Cari lirik lagu" },
+                { cmd: "!restoremessage", desc: "Mengembalikan pesan yang dihapus" },
+                { cmd: "!stiker", desc: "Membuat stiker dari foto atau video" },
+                { cmd: "!ubahviewonce", desc: "Mengirim ulang pesan sekali lihat" }
+            ],
+            fun: [
+                { cmd: "!blackjack", desc: "Main Blackjack lawan bot" },
+                { cmd: "!coinflip", desc: "Main coinflip untuk menggandakan gold" },
+                { cmd: "!dice", desc: "Tebak angka dadu untuk menang gold" },
+                { cmd: "!funfact", desc: "Kirim fun fact random" },
+                { cmd: "!quiz", desc: "Main quiz dengan pilihan ganda" },
+                { cmd: "!slots", desc: "Main slot machine" }
+            ],
+            informasi: [
+                { cmd: "!banlist", desc: "Melihat daftar anggota yang terkena ban" },
+                { cmd: "!botinfo", desc: "Menampilkan informasi tentang bot" },
+                { cmd: "!grupstats", desc: "Menampilkan informasi lengkap grup" },
+                { cmd: "!help", desc: "Menampilkan daftar command" },
+                { cmd: "!listblockedword", desc: "Menampilkan daftar kata terlarang" },
+                { cmd: "!module", desc: "Melihat fitur yang sedang aktif" },
+                { cmd: "!ping", desc: "Mengetes kecepatan respon bot" }
+            ],
+            leveling: [
+                { cmd: "!level", desc: "Cek level dan XP user" },
+                { cmd: "!rank", desc: "Menampilkan leaderboard" }
+            ],
+            moderasi: [
+                { cmd: "!addblockedword", desc: "Menambahkan kata terlarang" },
+                { cmd: "!ban", desc: "Melarang seseorang mengirim pesan" },
+                { cmd: "!demote", desc: "Menghapus status admin" },
+                { cmd: "!kick", desc: "Mengeluarkan anggota dari grup" },
+                { cmd: "!mutegrup", desc: "Aktifkan mode admin only" },
+                { cmd: "!promote", desc: "Memberikan status admin" },
+                { cmd: "!removeblockedword", desc: "Menghapus kata terlarang" },
+                { cmd: "!stikerban", desc: "Melarang seseorang mengirim stiker" },
+                { cmd: "!tagall", desc: "Mention semua anggota grup" },
+                { cmd: "!unban", desc: "Menghapus larangan atau ban" },
+                { cmd: "!unmutegrup", desc: "Matikan admin only" }
+            ],
+            setup: [
+                { cmd: "!antidelete", desc: "Mengirim ulang pesan yang dihapus" },
+                { cmd: "!antilink", desc: "Melarang anggota mengirim link" },
+                { cmd: "!antispam", desc: "Proteksi spam untuk grup" },
+                { cmd: "!setprefix", desc: "Mengganti prefix command grup" }
+            ],
+            sosial: [
+                { cmd: "!delinfo", desc: "Hapus info profil" },
+                { cmd: "!profile", desc: "Cek profile user" },
+                { cmd: "!setinfo", desc: "Set info profil pribadi" }
+            ]
+        };
+
+        // Function to create a command item
+        function createCommandItem(command) {
+            return `
+                <div class="flex items-center space-x-3 bg-slate-800 p-3 rounded-lg">
+                    <code class="text-indigo-400 font-mono font-semibold">${command.cmd}</code>
+                    <p class="text-slate-400 text-sm">${command.desc}</p>
+                </div>
+            `;
+        }
+
+        // Populate all tabs
+        for (const category in commands) {
+            const container = document.getElementById(`${category}-content`);
+            if (container) {
+                let content = '';
+                commands[category].forEach(cmd => {
+                    content += createCommandItem(cmd);
+                });
+                container.innerHTML = content;
+            }
+        }
+
+        // Tab functionality
+        const tabButtons = document.querySelectorAll('.tab-button');
+        const tabContents = document.querySelectorAll('.tab-content > div');
+
+        tabButtons.forEach(button => {
+            button.classList.add('px-4', 'py-2', 'rounded-lg', 'font-semibold', 'transition-colors', 'cursor-pointer');
+            button.addEventListener('click', () => {
+                const tab = button.dataset.tab;
+
+                tabButtons.forEach(btn => {
+                    btn.classList.remove('tab-active');
+                    btn.classList.add('tab-inactive');
+                });
+                button.classList.add('tab-active');
+                button.classList.remove('tab-inactive');
+
+                tabContents.forEach(content => {
+                    if (content.id === `${tab}-content`) {
+                        content.classList.remove('hidden');
+                    } else {
+                        content.classList.add('hidden');
+                    }
+                });
+            });
+        });
+        
+        // Mobile Menu Toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Render Lucide Icons
+        lucide.createIcons();
+    </script>
+</body>
+</html>
+
+
